@@ -1,0 +1,98 @@
+// Smooth scrolling for nav links
+// This section makes the page scroll smoothly to the targeted section when a navigation link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  // For each link in the navigation menu (i.e., each anchor <a> tag)
+  link.addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent the default behavior (which is to immediately jump to the section)
+
+    const section = document.querySelector(this.getAttribute('href')); // Get the section to scroll to based on the link's 'href' attribute
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' }); // Smoothly scroll the page to the target section
+    }
+  });
+});
+
+// Handle sign-up form submission and redirect to home page
+// This section handles the sign-up form's submission and password check
+document.getElementById('signup').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent the form from submitting normally (refreshing the page)
+
+  // Get the password and confirm password values from the form fields
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+
+  // Check if the password and confirm password match
+  if (password !== confirmPassword) {
+    alert('Passwords do not match!'); // If they don't match, show an alert
+  } else {
+    // If the passwords match:
+    alert('Sign-up successful! Redirecting to the homepage.'); // Show success message
+    window.location.href = 'index.html'; // Redirect the user to the homepage (you can change 'index.html' to any URL)
+  }
+});
+
+// Newsletter form handling
+// This section handles the newsletter subscription form
+document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent the form from submitting normally (page refresh)
+
+  const emailInput = this.querySelector('input[type="email"]'); // Get the email input field
+  const email = emailInput.value.trim(); // Get the email value and remove any extra spaces
+
+  // Check if the email input is empty
+  if (email === '') {
+    alert('Please enter a valid email address.'); // Show an error message if email is empty
+  } else {
+    // If the email is valid:
+    alert(`Thanks for subscribing, ${email}!`); // Show a thank you message with the email
+    this.reset(); // Reset the form fields (clear the email input)
+  }
+});
+
+// Theme toggle
+// This section allows users to toggle between light and dark modes for the website
+document.addEventListener('DOMContentLoaded', function () {
+  // Wait for the page content to be loaded completely
+  const toggleBtn = document.getElementById('theme-toggle'); // Get the theme toggle button
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode'); // Toggle the 'dark-mode' class on the <body> element
+  });
+});
+
+Explanation:
+Smooth Scrolling:
+
+This code listens for clicks on any anchor link (<a>) inside .nav-links. When clicked, it prevents the default behavior (jumping straight to the section) and smoothly scrolls the page to the section.
+
+Sign-Up Form Handling:
+
+When the sign-up form is submitted, it checks if the entered password and confirm password match.
+
+If they don’t match, it shows an alert message telling the user the passwords don’t match.
+
+If they match, it shows a success message and then redirects the user to the homepage.
+
+Newsletter Form Handling:
+
+When the newsletter form is submitted, it checks if the email is valid.
+
+If the email is empty, it shows an alert asking the user to enter a valid email.
+
+If the email is valid, it thanks the user and clears the form.
+
+Theme Toggle:
+
+This code waits for the page content to load and then listens for clicks on the theme toggle button.
+
+When the button is clicked, it adds or removes the dark-mode class from the <body> element, which will toggle between light and dark modes (based on CSS styles).
+
+Key Concepts:
+e.preventDefault(): Prevents the default action (like submitting a form or jumping to a link). Useful for custom behaviors.
+
+querySelector: Used to select an HTML element by its CSS selector (like class, ID, or tag).
+
+addEventListener('click', ...): Adds a click event listener to an element, so it responds when the user clicks on it.
+
+window.location.href: Changes the current page’s URL (used for redirects).
+
+classList.toggle(): Toggles (adds or removes) a class on an element. In this case, it toggles the dark-mode class to switch themes.
