@@ -6,6 +6,8 @@
   <title>Explore Turkey</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     
@@ -17,13 +19,12 @@
     <li><a href="#packages">Pricing</a></li>
     <li><a href="#newsletter">Subscribe</a></li>
   </ul>
-   <!-- Link the Sign Up button to the sign-up page -->
-  <a href="signup.html" class="btn-sign-up">Sign Up</a>
+  
+  <a href="signup.html" class="btn-sign-up me-3">Sign Up</a>
 </nav>
 
 
  <!-- Hero Section -->
-<!-- Hero Section with Video Background -->
 <section class="hero">
   <video autoplay muted loop playsinline class="bg-video">
     <source src="videos/turkey.mp4" type="video/mp4" />
@@ -60,6 +61,45 @@
 </section>
 
 
+
+<!-- Journey Planner Section -->
+<section id="journey-planner">
+  <div class="bg-video-wrapper">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="videos/turkey2.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="planner-content">
+      <h2>Your Journey Begins Here</h2>
+      <p>Experience the vacation of your dreams with our curated travel packages and personalised experiences.</p>
+
+      <form class="planner-form" id="planner-form">
+        <div class="planner-row">
+          <input type="text" id="destination" placeholder="Where to?" />
+          <div class="input-with-icon">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="date" id="departure-date" placeholder="Departure Date" />
+          </div>
+        </div>
+        <div class="planner-row">
+          <div class="input-with-icon">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="date" id="return-date" placeholder="Return Date" />
+          </div>
+          <select id="travelers">
+            <option>1 Adult</option>
+            <option selected>2 Adults</option>
+            <option>3 Adults</option>
+            <option>4 Adults</option>
+          </select>
+          <button type="submit" class="btn"><i class="fas fa-search"></i> Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
 <!-- Why Visit Turkey -->
 <section id="highlights">
   <h2>Why Visit Turkey?</h2>
@@ -82,63 +122,110 @@
   </div>
 </section>
 
-<!-- Packages Section -->
-<section id="packages">
-  <h2>Popular Packages</h2>
-  <div class="package-grid">
-    <div class="package-card">
-      <img src="images/cappadocia.jpg" alt="Cappadocia Tour">
-      <h3>Cappadocia Hot Air Balloon</h3>
-      <p>Experience breathtaking balloon rides over the fairy chimneys.</p>
-      <span class="price">$350</span>
-      <a href="#" class="btn">Book Now</a>
-    </div>
+<!-- Packages Section with Bootstrap Carousel (3 Cards at a Time) -->
+<section id="packages" class="my-5">
+  <div class="container">
+    <h2 class="mb-5">Popular Packages</h2>
+    <div id="packagesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
 
-    <div class="package-card">
-      <img src="images/istanbul.jpg" alt="Istanbul Tour">
-      <h3>Istanbul Heritage Walk</h3>
-      <p>Discover mosques, palaces, and bazaars of Turkey’s vibrant capital.</p>
-      <span class="price">$250</span>
-      <a href="#" class="btn">Book Now</a>
-    </div>
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <img src="images/cappadocia.jpg" class="card-img-top" alt="Cappadocia Tour" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Cappadocia Hot Air Balloon</h5>
+                  <p class="card-text">Experience breathtaking balloon rides over the fairy chimneys.</p>
+                  <span class="text-primary fw-bold mt-auto">$350</span>
+                  <a href="#" class="btn btn-outline-primary mt-2 d-block mx-auto w-75">Book Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <img src="images/istanbul.jpg" class="card-img-top" alt="Istanbul Tour" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Istanbul Heritage Walk</h5>
+                  <p class="card-text">Discover mosques, palaces, and bazaars of Turkey’s vibrant capital.</p>
+                  <span class="text-primary fw-bold mt-auto">$250</span>
+                  <a href="#" class="btn btn-outline-primary mt-2 d-block mx-auto w-75">Book Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <img src="images/antalya.jpg" class="card-img-top" alt="Antalya Beach" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Antalya Beach Retreat</h5>
+                  <p class="card-text">Unwind by turquoise beaches and explore charming old towns.</p>
+                  <span class="text-primary fw-bold mt-auto">$270</span>
+                  <a href="#" class="btn btn-outline-primary mt-2 d-block mx-auto w-75">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="package-card">
-      <img src="images/pamukkale.jpg" alt="Pamukkale Tour">
-      <h3>Pamukkale Thermal Pools</h3>
-      <p>Relax in the natural white travertine terraces and mineral-rich water.</p>
-      <span class="price">$220</span>
-      <a href="#" class="btn">Book Now</a>
-    </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <img src="images/pamukkale.jpg" class="card-img-top" alt="Pamukkale Tour" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Pamukkale Thermal Pools</h5>
+                  <p class="card-text">Relax in the white travertine terraces and mineral-rich water.</p>
+                  <span class="text-primary fw-bold mt-auto">$220</span>
+                  <a href="#" class="btn btn-outline-primary mt-2 d-block mx-auto w-75">Book Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <img src="images/ephesus.jpg" class="card-img-top" alt="Ephesus Tour" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Ancient Ephesus Tour</h5>
+                  <p class="card-text">Walk through the majestic ruins of this Greco-Roman city.</p>
+                  <span class="text-primary fw-bold mt-auto">$180</span>
+                  <a href="#" class="btn btn-outline-primary mt-2 d-block mx-auto w-75">Book Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <img src="images/troy.jpg" class="card-img-top" alt="Troy Tour" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Legendary Troy Excursion</h5>
+                  <p class="card-text">Explore the ruins of the ancient city and its myths.</p>
+                  <span class="text-primary fw-bold mt-auto">$210</span>
+                  <a href="#" class="btn btn-outline-primary mt-2 d-block mx-auto w-75">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="package-card">
-      <img src="images/ephesus.jpg" alt="Ephesus Tour">
-      <h3>Ancient Ephesus Tour</h3>
-      <p>Walk through the majestic ruins of this Greco-Roman city.</p>
-      <span class="price">$180</span>
-      <a href="#" class="btn">Book Now</a>
-    </div>
+      </div>
 
-    <div class="package-card">
-      <img src="images/antalya.jpg" alt="Antalya Beach">
-      <h3>Antalya Beach Retreat</h3>
-      <p>Unwind by turquoise beaches and explore charming old towns.</p>
-      <span class="price">$270</span>
-      <a href="#" class="btn">Book Now</a>
-    </div>
-
-    <div class="package-card">
-      <img src="images/troy.jpg" alt="Troy Tour">
-      <h3>Legendary Troy Excursion</h3>
-      <p>Explore the ruins of the ancient city and its myths.</p>
-      <span class="price">$210</span>
-      <a href="#" class="btn">Book Now</a>
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#packagesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#packagesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
 </section>
 
 
+
   <!-- Testimonials Section -->
-<section id="testimonials">
+<section id="testimonials" class="py-5 text-white" style="background:  url('images/stars.jpg') no-repeat center center/cover;">
   <h2>What Our Travelers Say</h2>
   <div class="testimonial-grid">
     <div class="testimonial-card">
@@ -168,6 +255,16 @@
   </div>
 </section>
 
+<!-- Call to Action Section -->
+<section id="call-to-action">
+  <div class="cta-content">
+    <h2>Ready for your next adventure?</h2>
+    <p>Discover our curated trips with the best deals to make your dream vacation a reality.</p>
+    <a href="#packages" class="btn">Explore Best Deals Now</a>
+  </div>
+</section>
+
+
 
   <!-- Newsletter -->
 <section id="newsletter">
@@ -192,5 +289,7 @@
         <i class="fas fa-adjust"></i>
     </button>
   <script src="script.js"></script>
+  <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
