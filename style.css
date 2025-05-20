@@ -112,18 +112,18 @@ h1, h2, h3 {
 }
 /* Sign-Up Page Styling */
 #sign-up-form {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 80vh;
-  background-color: #f4f9f9;
+  justify-content: center;
+  background-color: #E2D3C8;
 }
 
 .form-container {
   background-color: white;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
